@@ -70,8 +70,6 @@ $ ( () => {
       if(parseInt(answer) === eval($currentQuestion[0])) {
         $game.playerOneScore++
         $questionGenerator();
-        console.log($currentQuestion[0])
-        // $questionAsk()
 
         console.log('Correct')
 
@@ -122,7 +120,10 @@ $ ( () => {
     $questionAsk($answerValue)
     let $playerOne = $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
     let $playerTwo = $('#gameDiv_score2').text('Score Player 1: ' + $game.playerTwoScore)
-    console.log($answerValue)
+    //remove text from input field
+    $('#input_field').val('')
+
+
 
 
   })
