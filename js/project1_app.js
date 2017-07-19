@@ -28,6 +28,8 @@ $ ( () => {
       time: 30
     }
 
+
+
   //end game object
   //========================================================
 
@@ -45,20 +47,32 @@ $ ( () => {
   let $rightEquation = Math.floor(Math.random() * 12)
     console.log($rightEquation)
 
-    $currentQuestion.push($leftEquation + $operator + $rightEquation)
+    $currentQuestion.unshift($leftEquation + $operator + $rightEquation)
+  let $newQueston = $('#input_question').text($currentQuestion[0])
 
-    // $questionAsk();
+
   }
 
   //end function generator
+  //========================================================
+
+  //start continue Round function
+  //========================================================
+
+  //end continueRound function
   //========================================================
 
   //start function question and answer
   //========================================================
 
   const $questionAsk = (answer) => {
-
+    $('#input_question').text($currentQuestion[0])
       if(parseInt(answer) === eval($currentQuestion[0])) {
+        $game.playerOneScore++
+        $questionGenerator();
+        console.log($currentQuestion[0])
+        // $questionAsk()
+
         console.log('Correct')
 
       } else {
@@ -70,13 +84,34 @@ $ ( () => {
   //end function question and answer
   //========================================================
 
+  //start function timer
+  //========================================================
+    const $TimePlay = () => {
+      const $time = setInterval( ()=> {
+        $game.time--
+        $('#gameDiv_time').text('Time: ' + $game.time)
+        if($game.time === 0) {
+          clearInterval($time)
+        }
+
+      }, 1000)
+    }
+
+
+  //end function timer
+  //========================================================
+
   //start button listener begin
   //========================================================
   $('#begin').on('click', () => {
     $questionGenerator();
-  $('#input_question').text($currentQuestion[0])
+    $TimePlay();
+    //inputs question on screen
+
+
+
 })
-  //start button listener begin
+  //end button listener begin
   //========================================================
 
 
@@ -85,11 +120,14 @@ $ ( () => {
   $('#input_button').on('click', () => {
     let $answerValue = $('#input_field').val()
     $questionAsk($answerValue)
-
+    let $playerOne = $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
+    let $playerTwo = $('#gameDiv_score2').text('Score Player 1: ' + $game.playerTwoScore)
     console.log($answerValue)
+
+
   })
 
-  //start button listener submit
+  //end button listener submit
   //========================================================
 
 

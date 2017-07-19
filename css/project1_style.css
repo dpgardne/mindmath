@@ -65,7 +65,13 @@
   margin: 10px;
 }
 
-#gameDiv_score {
+#gameDiv_score1 {
+  text-align: right;
+  font-size: 14px;
+  margin: 10px;
+}
+
+#gameDiv_score2 {
   text-align: right;
   font-size: 14px;
   margin: 10px;
