@@ -74,6 +74,7 @@ $ ( () => {
         console.log('Correct')
 
       } else {
+        $questionGenerator();
         console.log('Incorrect')
 
       }
@@ -102,6 +103,7 @@ $ ( () => {
   //start button listener begin
   //========================================================
   $('#begin').on('click', () => {
+    $('#gameDiv_player').text('Player\'s turn: 1 ' )
     $questionGenerator();
     $TimePlay();
     //inputs question on screen
