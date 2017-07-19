@@ -16,6 +16,21 @@ $ ( () => {
   //end global scope
   //========================================================
 
+  //start game object
+  //========================================================
+
+    const $game = {
+      playerOne: 1,
+      playerTwo: 2,
+      playerOneScore: 0,
+      playerTwoScore: 0,
+      round: 0,
+      time: 30
+    }
+
+  //end game object
+  //========================================================
+
   //start function question generator
   //========================================================
 
@@ -32,7 +47,7 @@ $ ( () => {
 
     $currentQuestion.push($leftEquation + $operator + $rightEquation)
 
-    $questionAsk();
+    // $questionAsk();
   }
 
   //end function generator
@@ -41,33 +56,41 @@ $ ( () => {
   //start function question and answer
   //========================================================
 
-  const $questionAsk = () => {
-    let $question = prompt($currentQuestion[0])
-      //make user answer a string
-    let $question_1 = parseInt($question)
-      console.log($question_1)
-      if($question_1 === eval($currentQuestion[0])) {
+  const $questionAsk = (answer) => {
+
+      if(parseInt(answer) === eval($currentQuestion[0])) {
         console.log('Correct')
 
       } else {
         console.log('Incorrect')
+
       }
   }
 
   //end function question and answer
   //========================================================
 
+  //start button listener begin
+  //========================================================
+  $('#begin').on('click', () => {
+    $questionGenerator();
+  $('#input_question').text($currentQuestion[0])
+})
+  //start button listener begin
+  //========================================================
 
 
-  $questionGenerator();
+  //start button listener submit
+  //========================================================
+  $('#input_button').on('click', () => {
+    let $answerValue = $('#input_field').val()
+    $questionAsk($answerValue)
 
+    console.log($answerValue)
+  })
 
-
-
-
-
-
-
+  //start button listener submit
+  //========================================================
 
 
 })

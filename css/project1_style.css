@@ -59,6 +59,12 @@
   font-size: 12px;
 }
 
+#gameDiv_player {
+  text-align: right;
+  font-size: 14px;
+  margin: 10px;
+}
+
 #gameDiv_score {
   text-align: right;
   font-size: 14px;
@@ -76,6 +82,11 @@
   font-size: 14px;
   margin: 10px;
 }
+
+#input_field {
+  margin: 10px;
+}
+
 
 #input_field {
   width: 250px;
