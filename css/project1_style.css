@@ -49,6 +49,13 @@
   border: none;
 }
 
+#playerTwo {
+  background-color: #96CA2D;
+  width: 0px;
+  height: 0px;
+  border: none;
+}
+
 #gameDiv {
   border: 1px solid #96CA2D;
   background-color: white;
@@ -89,9 +96,7 @@
   margin: 10px;
 }
 
-#input_field {
-  margin: 10px;
-}
+
 
 
 #input_field {
@@ -99,6 +104,7 @@
   height: 40px;
   font-size: 24px;
   text-align: center;
+  margin-top: 20px;
 }
 
 #input_button {
@@ -113,4 +119,18 @@
   padding: 5px;
   color: #4BB5C1;
   border: none;
+}
+
+#input_button2 {
+  display: block;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #EDF7F2;
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #4BB5C1;
+  border: none;
+
 }

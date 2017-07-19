@@ -20,12 +20,13 @@ $ ( () => {
   //========================================================
 
     const $game = {
+      playerTurn: 0,
       playerOne: 1,
       playerTwo: 2,
       playerOneScore: 0,
       playerTwoScore: 0,
       round: 0,
-      time: 30
+      time: 5
     }
 
 
@@ -91,6 +92,10 @@ $ ( () => {
         $('#gameDiv_time').text('Time: ' + $game.time)
         if($game.time === 0) {
           clearInterval($time)
+          $('#input_button').remove()
+          // $('#begin_button').remove()
+           $('#begin_button').text('Player 2: Click to begin')
+          // let $playerTwoBegin = $('#playerTwo').attr('id', 'input_button2').text('Player 2: Click to begin')
         }
 
       }, 1000)
@@ -103,9 +108,15 @@ $ ( () => {
   //start button listener begin
   //========================================================
   $('#begin').on('click', () => {
-    $('#gameDiv_player').text('Player\'s turn: 1 ' )
+    if($game.playerTurn === 0) {
+    $game.playerTurn++
+    $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $questionGenerator();
     $TimePlay();
+  } else {
+    $game.playerTurn++
+    $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
+  }
     //inputs question on screen
 
 
