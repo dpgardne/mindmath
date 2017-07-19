@@ -1,0 +1,50 @@
+* {
+
+  margin: 0;
+  padding: 0;
+}
+#mainDiv {
+  min-width: 500px;
+  max-width: 600px;
+  background-color: #4BB5C1;
+  color: white;
+  font-family: 'Maven Pro', sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#description {
+  min-width: 500px;
+  max-width: 600px;
+  background-color: #96CA2D;
+  color: white;
+  font-family: 'Maven Pro', sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+
+}
+
+#begin {
+  min-width: 500px;
+  max-width: 600px;
+  background-color: #B5E655;
+  font-family: 'Maven Pro', sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+}
+
+#begin_button {
+  display: block;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #EDF7F2;
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #4BB5C1;
+  border: none;
+}
