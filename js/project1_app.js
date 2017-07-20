@@ -123,6 +123,7 @@ $ ( () => {
   } else if($game.playerTurn === 1) {
     $game.playerTurn++
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
+    $('#input_field').val('')
     $game.time = 15
     // $('#input_button2').attr('id', 'input_button').text('Submit')
     $questionGenerator();
