@@ -68,16 +68,23 @@ $ ( () => {
 
   const $questionAsk = (answer) => {
     $('#input_question').text($currentQuestion[0])
-      if(parseInt(answer) === eval($currentQuestion[0])) {
+      if(parseInt(answer) === eval($currentQuestion[0]) && $game.playerTurn === 1) {
         $game.playerOneScore++
         $questionGenerator();
 
         console.log('Correct')
 
-      } else {
+      } else if(parseInt(answer) !== eval($currentQuestion[0]) && $game.playerTurn === 1) {
         $questionGenerator();
         console.log('Incorrect')
 
+      } else if(parseInt(answer) === eval($currentQuestion[0]) && $game.playerTurn === 2) {
+          $game.playerTwoScore++
+          $questionGenerator();
+          console.log('Correct')
+      } else if(parseInt(answer) !== eval($currentQuestion[0]) && $game.playerTurn === 2) {
+          $questionGenerator();
+          console.log('Incorrect')
       }
   }
 
@@ -92,7 +99,7 @@ $ ( () => {
         $('#gameDiv_time').text('Time: ' + $game.time)
         if($game.time === 0) {
           clearInterval($time)
-          $('#input_button').remove()
+          // $('#input_button').remove()
           // $('#begin_button').remove()
            $('#begin_button').text('Player 2: Click to begin')
           // let $playerTwoBegin = $('#playerTwo').attr('id', 'input_button2').text('Player 2: Click to begin')
@@ -113,9 +120,13 @@ $ ( () => {
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $questionGenerator();
     $TimePlay();
-  } else {
+  } else if($game.playerTurn === 1) {
     $game.playerTurn++
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
+    $game.time = 15
+    // $('#input_button2').attr('id', 'input_button').text('Submit')
+    $questionGenerator();
+    $TimePlay()
   }
     //inputs question on screen
 
@@ -129,20 +140,26 @@ $ ( () => {
   //start button listener submit
   //========================================================
   $('#input_button').on('click', () => {
+    if($game.time > 0){
     let $answerValue = $('#input_field').val()
     $questionAsk($answerValue)
     let $playerOne = $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
     let $playerTwo = $('#gameDiv_score2').text('Score Player 1: ' + $game.playerTwoScore)
     //remove text from input field
     $('#input_field').val('')
+    console.log('this works')
+  } else {
 
-
-
-
+  }
   })
 
   //end button listener submit
   //========================================================
+
+
+
+
+
 
 
 })

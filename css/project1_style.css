@@ -123,8 +123,8 @@
 
 #input_button2 {
   display: block;
-  min-width: 250px;
-  max-width: 250px;
+  width: 0px;
+  height: 0px;
   background-color: #EDF7F2;
   font-family: 'Maven Pro', sans-serif;
   font-size: 16px;
