@@ -62,7 +62,7 @@
   color: black;
   min-width: 500px;
   max-width: 600px;
-  height: 350px;
+  height: 400px;
   font-size: 12px;
 }
 
@@ -73,6 +73,18 @@
 }
 
 #gameDiv_score1 {
+  text-align: right;
+  font-size: 14px;
+  margin: 10px;
+}
+
+#gameDiv_wins1 {
+  text-align: right;
+  font-size: 14px;
+  margin: 10px;
+}
+
+#gameDiv_wins2 {
   text-align: right;
   font-size: 14px;
   margin: 10px;

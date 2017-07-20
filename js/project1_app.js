@@ -20,9 +20,8 @@ $ ( () => {
   //========================================================
 
     const $game = {
-      gameOne: '',
-      gameTwo: '',
-      gameThree: '',
+      winsPlayerOne: 0,
+      winsPlayerTwo: 0,
       playerTurn: 0,
       playerOne: 1,
       playerTwo: 2,
@@ -109,9 +108,18 @@ $ ( () => {
         } else if($game.time === 0 && $game.round === 1 && $game.playerTurn === 2) {
           clearInterval($time)
           if($game.playerTwoScore > $game.playerOneScore) {
-          $('#begin_winner').text('Player 2 has won')
-        } else {
-          $('#begin_winner').text('Player 1 has won')
+          $('#begin_winner').text('Player 2 has won round: ' + $game.round)
+          $game.winsPlayerTwo++
+          $('#gameDiv_wins2').text('Wins player 2: ' + $game.winsPlayerTwo)
+          $('#begin_button').text('Play best 2:3?')
+        } else if($game.playerTwoScore < $game.playerOneScore) {
+          $('#begin_winner').text('Player 1 has won round: ' + $game.round)
+          $game.winsPlayerOne++
+          $('#gameDiv_wins1').text('Wins Player 1: ' + $game.winsPlayerOne)
+          $('#begin_button').text('Play best 2:3?')
+        } else if($game.playerTwoScore === $game.playerOneScore) {
+          $('#begin_winner').text('Player 1 and 2 tied round: ' + $game.round)
+          $('#begin_button').text('Play best 2:3?')
         }
         }
 
