@@ -62,7 +62,7 @@
   color: black;
   min-width: 500px;
   max-width: 600px;
-  height: 300px;
+  height: 350px;
   font-size: 12px;
 }
 
@@ -133,4 +133,13 @@
   color: #4BB5C1;
   border: none;
 
+}
+
+#begin_winner {
+  font-size: 20px;
+  font-family: 'Maven Pro', sans-serif;
+  text-align: center;
+  color: #96CA2D;
+  margin-bottom: 10px;
+  padding: 0px;
 }

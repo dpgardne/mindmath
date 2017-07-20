@@ -100,12 +100,19 @@ $ ( () => {
       const $time = setInterval( ()=> {
         $game.time--
         $('#gameDiv_time').text('Time: ' + $game.time)
-        if($game.time === 0) {
+        if($game.time === 0 && $game.round === 1 && $game.playerTurn === 1) {
           clearInterval($time)
           // $('#input_button').remove()
           // $('#begin_button').remove()
            $('#begin_button').text('Player 2: Click to begin')
           // let $playerTwoBegin = $('#playerTwo').attr('id', 'input_button2').text('Player 2: Click to begin')
+        } else if($game.time === 0 && $game.round === 1 && $game.playerTurn === 2) {
+          clearInterval($time)
+          if($game.playerTwoScore > $game.playerOneScore) {
+          $('#begin_winner').text('Player 2 has won')
+        } else {
+          $('#begin_winner').text('Player 1 has won')
+        }
         }
 
       }, 1000)
