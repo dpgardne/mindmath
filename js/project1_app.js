@@ -29,7 +29,7 @@ $ ( () => {
       playerOneScore: 0,
       playerTwoScore: 0,
       round: 0,
-      time: 5,
+      time: 10,
       gameWinner() {
           if($game.winsPlayerOne === 2) {
             $('#begin_winner').text('Player 1 has won best 2:3').css('color', '#96CA2D')
@@ -229,13 +229,13 @@ $ ( () => {
     $game.playerTurn = 0
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn)
     $game.playerOneScore = 0
-    $('#gameDiv_score1').text('Score Player 1 ' + $game.playerOneScore)
+    $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
     $game.playerTwoScore = 0
-    $('#gameDiv_score2').text('Score Player 2 ' + $game.playerTwoScore)
+    $('#gameDiv_score2').text('Score Player 2: ' + $game.playerTwoScore)
     $game.winsPlayerOne = 0
-    $('#gameDiv_wins1').text('Wins Player 1 ' + $game.winsPlayerOne)
+    $('#gameDiv_wins1').text('Wins Player 1: ' + $game.winsPlayerOne)
     $game.winsPlayerTwo = 0
-    $('#gameDiv_wins2').text('Wins Player 2 ' + $game.winsPlayerTwo)
+    $('#gameDiv_wins2').text('Wins Player 2: ' + $game.winsPlayerTwo)
     $game.ties = 0
     $('#gameDiv_ties').text('Ties: ' + $game.ties)
     $game.round = 0
@@ -246,6 +246,7 @@ $ ( () => {
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn)
     $game.round++
     $('#gameDiv_round').text('Round: ' + $game.round)
+    $('#input_field').val('')
     $questionGenerator();
     $TimePlay()
 
