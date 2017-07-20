@@ -29,7 +29,14 @@ $ ( () => {
       playerOneScore: 0,
       playerTwoScore: 0,
       round: 0,
-      time: 5
+      time: 5,
+      gameWinner() {
+          if($game.winsPlayerOne === 2) {
+            $('#begin_winner').text('Player 1 has won best 2:3').css('color', '#96CA2D')
+          } else if($game.winsPlayerTwo === 2) {
+            $('#begin_winner').text('Player 2 has won best 2:3').css('color', '#96CA2D')
+          }
+      }
     }
 
 
@@ -124,7 +131,9 @@ $ ( () => {
           $('#gameDiv_ties').text('Ties: ' + $game.ties)
           $('#begin_button').text('Play best 2:3?')
         }
-        }
+      } else if($game.time === 0 && $game.round === 2 && $game.playerTurn === 1) {
+        clearInterval($time)
+      }
 
       }, 1000)
     }
@@ -148,8 +157,22 @@ $ ( () => {
     $game.playerTurn++
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $('#input_field').val('')
-    $game.time = 15
-    // $('#input_button2').attr('id', 'input_button').text('Submit')
+    $game.time = 10
+
+    $questionGenerator();
+    $TimePlay()
+  } else if ($game.playerTurn === 2 && $game.round === 1) {
+    $game.round++
+    $('#gameDiv_round').text('Round: ' + $game.round)
+    $game.playerOneScore = 0
+    $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
+    $game.playerTwoScore = 0
+    $('#gameDiv_score2').text('Score Player 1: ' + $game.playerTwoScore)
+    $game.playerTurn--
+    $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
+    $game.time = 10
+    $('#begin_winner').css('color', 'white')
+
     $questionGenerator();
     $TimePlay()
   }
