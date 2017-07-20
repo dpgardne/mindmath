@@ -22,6 +22,7 @@ $ ( () => {
     const $game = {
       winsPlayerOne: 0,
       winsPlayerTwo: 0,
+      ties: 0,
       playerTurn: 0,
       playerOne: 1,
       playerTwo: 2,
@@ -119,6 +120,8 @@ $ ( () => {
           $('#begin_button').text('Play best 2:3?')
         } else if($game.playerTwoScore === $game.playerOneScore) {
           $('#begin_winner').text('Player 1 and 2 tied round: ' + $game.round)
+          $game.ties++
+          $('#gameDiv_ties').text('Ties: ' + $game.ties)
           $('#begin_button').text('Play best 2:3?')
         }
         }
