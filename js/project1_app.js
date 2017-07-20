@@ -133,6 +133,8 @@ $ ( () => {
         }
       } else if($game.time === 0 && $game.round === 2 && $game.playerTurn === 1) {
         clearInterval($time)
+        $('#begin_button').text('Player 2: Click to begin')
+
       }
 
       }, 1000)
