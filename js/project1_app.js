@@ -20,6 +20,9 @@ $ ( () => {
   //========================================================
 
     const $game = {
+      gameOne: '',
+      gameTwo: '',
+      gameThree: '',
       playerTurn: 0,
       playerOne: 1,
       playerTwo: 2,
@@ -117,6 +120,9 @@ $ ( () => {
   $('#begin').on('click', () => {
     if($game.playerTurn === 0) {
     $game.playerTurn++
+    $game.round++
+    $('#gameDiv_round').text('Round: ' + $game.round)
+
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $questionGenerator();
     $TimePlay();
