@@ -135,7 +135,7 @@ $ ( () => {
         clearInterval($time)
         $('#begin_button').text('Player 2: Click to begin')
 
-      } else if($game.time === 0 && $game.round === 2 && $game.playerTurn === 2) {
+      } else if($game.time === 0 && $game.round >= 2 && $game.playerTurn === 2) {
           clearInterval($time)
           if($game.playerTwoScore > $game.playerOneScore) {
           $('#begin_winner').text('Player 2 has won round: ' + $game.round).css('color', '#96CA2D')
@@ -156,6 +156,9 @@ $ ( () => {
           $('#begin_button').text('Continue best 2:3?')
           $game.gameWinner()
         }
+      } else if($game.time === 0 && $game.round > 2 && $game.playerTurn === 1) {
+        clearInterval($time)
+        $('#begin_button').text('Player 2: Click to begin')
       }
 
       }, 1000)
@@ -190,7 +193,7 @@ $ ( () => {
     $game.playerOneScore = 0
     $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
     $game.playerTwoScore = 0
-    $('#gameDiv_score2').text('Score Player 1: ' + $game.playerTwoScore)
+    $('#gameDiv_score2').text('Score Player 2: ' + $game.playerTwoScore)
     $game.playerTurn--
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $game.time = 10
@@ -203,6 +206,20 @@ $ ( () => {
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $('#input_field').val('')
     $game.time = 10
+
+    $questionGenerator();
+    $TimePlay()
+  } else if($game.playerTurn === 2 && $game.round >= 2 && $game.winsPlayerOne !== 2 && $game.winsPlayerTwo !== 2 ) {
+    $game.round++
+    $('#gameDiv_round').text('Round: ' + $game.round)
+    $game.playerOneScore = 0
+    $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
+    $game.playerTwoScore = 0
+    $('#gameDiv_score2').text('Score Player 2: ' + $game.playerTwoScore)
+    $game.playerTurn--
+    $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
+    $game.time = 10
+    $('#begin_winner').css('color', 'white')
 
     $questionGenerator();
     $TimePlay()
@@ -223,7 +240,7 @@ $ ( () => {
     let $answerValue = $('#input_field').val()
     $questionAsk($answerValue)
     let $playerOne = $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
-    let $playerTwo = $('#gameDiv_score2').text('Score Player 1: ' + $game.playerTwoScore)
+    let $playerTwo = $('#gameDiv_score2').text('Score Player 2: ' + $game.playerTwoScore)
     //remove text from input field
     $('#input_field').val('')
     console.log('this works')
