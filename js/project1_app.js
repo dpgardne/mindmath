@@ -30,6 +30,7 @@ $ ( () => {
       playerTwoScore: 0,
       round: 0,
       time: 10,
+      difficulty: 1,
       gameWinner() {
           if($game.winsPlayerOne === 2) {
             $('#begin_winner').text('Player 1 has won best 2:3').css('color', '#96CA2D')
@@ -50,19 +51,19 @@ $ ( () => {
   //========================================================
 
   const $questionGenerator = () => {
-  let $operator = $operatorArray[Math.floor(Math.random() * $operatorArray.length)];
-     console.log($operator)
 
-  let $leftEquation = Math.floor(Math.random() * 12)
-     console.log($leftEquation)
+    let $operator = $operatorArray[Math.floor(Math.random() * $operatorArray.length)];
+       console.log($operator)
+
+       let $leftEquation = Math.floor(Math.random() * 12) * $game.difficulty
+          console.log($leftEquation)
 
 
-  let $rightEquation = Math.floor(Math.random() * 12)
-    console.log($rightEquation)
+       let $rightEquation = Math.floor(Math.random() * 12) * $game.difficulty
 
-    $currentQuestion.unshift($leftEquation + $operator + $rightEquation)
-  let $newQueston = $('#input_question').text($currentQuestion[0])
 
+      $currentQuestion.unshift($leftEquation + $operator + $rightEquation)
+      let $newQueston = $('#input_question').text($currentQuestion[0])
 
   }
 
@@ -170,9 +171,49 @@ $ ( () => {
   //end function timer
   //========================================================
 
+  //start button listener easy
+  //========================================================
+
+  $('#easy_button').on('click', () => {
+    $game.difficulty = 1
+    $('#easy_button').css({'background-color': '#4BB5C1', 'color': 'white'})
+    $('#medium_button').css({'background-color': '#EDF7F2', 'color': '#4BB5C1'})
+    $('#hard_button').css({'background-color': '#EDF7F2', 'color': '#4BB5C1'})
+  })
+
+  //end button listener easy
+  //========================================================
+
+  //start button listener medium
+  //========================================================
+
+  $('#medium_button').on('click', () => {
+    $game.difficulty = 6
+    $('#medium_button').css({'background-color': '#4BB5C1', 'color': 'white'})
+    $('#easy_button').css({'background-color': '#EDF7F2', 'color': '#4BB5C1'})
+    $('#hard_button').css({'background-color': '#EDF7F2', 'color': '#4BB5C1'})
+  })
+
+  //end button listener medium
+  //========================================================
+
+  //start button listener hard
+  //========================================================
+
+  $('#hard_button').on('click', () => {
+    $game.difficulty = 12
+    $('#hard_button').css({'background-color': '#4BB5C1', 'color': 'white'})
+    $('#easy_button').css({'background-color': '#EDF7F2', 'color': '#4BB5C1'})
+    $('#medium_button').css({'background-color': '#EDF7F2', 'color': '#4BB5C1'})
+  })
+
+  //end button listener hard
+  //========================================================
+
+
   //start button listener begin
   //========================================================
-  $('#begin').on('click', () => {
+  $('#begin_button').on('click', () => {
     if($game.playerTurn === 0) {
     $game.playerTurn++
     $game.round++
