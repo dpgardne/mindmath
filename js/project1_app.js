@@ -29,7 +29,7 @@ $ ( () => {
       playerOneScore: 0,
       playerTwoScore: 0,
       round: 0,
-      time: 10,
+      time: 30,
       difficulty: 1,
       gameWinner() {
           if($game.winsPlayerOne === 2) {
@@ -112,8 +112,10 @@ $ ( () => {
         $('#gameDiv_time').text('Time: ' + $game.time)
         if($game.time === 0 && $game.round === 1 && $game.playerTurn === 1) {
           clearInterval($time)
-          // $('#input_button').remove()
-          // $('#begin_button').remove()
+            //round 1
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_question').css('display', 'none')
            $('#begin_button').text('Player 2: Click to begin')
           // let $playerTwoBegin = $('#playerTwo').attr('id', 'input_button2').text('Player 2: Click to begin')
         } else if($game.time === 0 && $game.round === 1 && $game.playerTurn === 2) {
@@ -123,20 +125,36 @@ $ ( () => {
           $game.winsPlayerTwo++
           $('#gameDiv_wins2').text('Wins player 2: ' + $game.winsPlayerTwo)
           $('#begin_button').text('Play best 2:3?')
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_field').css('display', 'none')
+          $('#input_question').css('display', 'none')
         } else if($game.playerTwoScore < $game.playerOneScore) {
           $('#begin_winner').text('Player 1 has won round: ' + $game.round).css('color', '#96CA2D')
           $game.winsPlayerOne++
           $('#gameDiv_wins1').text('Wins Player 1: ' + $game.winsPlayerOne)
           $('#begin_button').text('Play best 2:3?')
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_field').css('display', 'none')
+          $('#input_question').css('display', 'none')
         } else if($game.playerTwoScore === $game.playerOneScore) {
-          $('#begin_winner').text('Player 1 and 2 tied round: ' + $game.round)
+          $('#begin_winner').text('Player 1 and 2 tied round: ' + $game.round).css('color', '#96CA2D')
           $game.ties++
           $('#gameDiv_ties').text('Ties: ' + $game.ties)
           $('#begin_button').text('Play best 2:3?')
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_field').css('display', 'none')
+          $('#input_question').css('display', 'none')
         }
       } else if($game.time === 0 && $game.round === 2 && $game.playerTurn === 1) {
         clearInterval($time)
         $('#begin_button').text('Player 2: Click to begin')
+        $('#input_field').css('display', 'none')
+        $('#input_button').css('display', 'none')
+        $('#input_field').css('display', 'none')
+        $('#input_question').css('display', 'none')
 
       } else if($game.time === 0 && $game.round >= 2 && $game.playerTurn === 2) {
           clearInterval($time)
@@ -145,23 +163,39 @@ $ ( () => {
           $game.winsPlayerTwo++
           $('#gameDiv_wins2').text('Wins player 2: ' + $game.winsPlayerTwo)
           $('#begin_button').text('Continue best 2:3?')
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_field').css('display', 'none')
+          $('#input_question').css('display', 'none')
           $game.gameWinner()
         } else if($game.playerTwoScore < $game.playerOneScore) {
           $('#begin_winner').text('Player 1 has won round: ' + $game.round).css('color', '#96CA2D')
           $game.winsPlayerOne++
           $('#gameDiv_wins1').text('Wins Player 1: ' + $game.winsPlayerOne)
           $('#begin_button').text('Continue best 2:3?')
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_field').css('display', 'none')
+          $('#input_question').css('display', 'none')
           $game.gameWinner()
         } else if($game.playerTwoScore === $game.playerOneScore) {
           $('#begin_winner').text('Player 1 and 2 tied round: ' + $game.round).css('color', '#96CA2D')
           $game.ties++
           $('#gameDiv_ties').text('Ties: ' + $game.ties)
           $('#begin_button').text('Continue best 2:3?')
+          $('#input_field').css('display', 'none')
+          $('#input_button').css('display', 'none')
+          $('#input_field').css('display', 'none')
+          $('#input_question').css('display', 'none')
           $game.gameWinner()
         }
       } else if($game.time === 0 && $game.round > 2 && $game.playerTurn === 1) {
         clearInterval($time)
         $('#begin_button').text('Player 2: Click to begin')
+        $('#input_field').css('display', 'none')
+        $('#input_button').css('display', 'none')
+        $('#input_field').css('display', 'none')
+        $('#input_question').css('display', 'none')
       }
 
       }, 1000)
@@ -217,16 +251,26 @@ $ ( () => {
     if($game.playerTurn === 0) {
     $game.playerTurn++
     $game.round++
+    //round 1
+    $('#input_field').css('display', 'unset')
+    $('#input_button').css('display', 'block')
+    $('#input_question').css('display', 'block')
     $('#gameDiv_round').text('Round: ' + $game.round)
 
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $questionGenerator();
     $TimePlay();
   } else if($game.playerTurn === 1) {
+    $('#begin_winner').css('color', 'white')
+    //round 2
+    $('#input_field').css('display', 'unset')
+    $('#input_button').css('display', 'block')
+    $('#input_question').css('display', 'block')
     $game.playerTurn++
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $('#input_field').val('')
-    $game.time = 10
+    $game.time = 30
+
 
     $questionGenerator();
     $TimePlay()
@@ -239,8 +283,12 @@ $ ( () => {
     $('#gameDiv_score2').text('Score Player 2: ' + $game.playerTwoScore)
     $game.playerTurn--
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
-    $game.time = 10
+    $game.time = 30
     $('#begin_winner').css('color', 'white')
+    //round 3
+    $('#input_field').css('display', 'unset')
+    $('#input_button').css('display', 'block')
+    $('#input_question').css('display', 'block')
 
     $questionGenerator();
     $TimePlay()
@@ -248,8 +296,12 @@ $ ( () => {
     $game.playerTurn++
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
     $('#input_field').val('')
-    $game.time = 10
-
+    $game.time = 30
+    $('#begin_winner').css('color', 'white')
+    //round 4
+    $('#input_field').css('display', 'unset')
+    $('#input_button').css('display', 'block')
+    $('#input_question').css('display', 'block')
     $questionGenerator();
     $TimePlay()
   } else if($game.playerTurn === 2 && $game.round >= 2 && $game.winsPlayerOne !== 2 && $game.winsPlayerTwo !== 2 ) {
@@ -261,9 +313,12 @@ $ ( () => {
     $('#gameDiv_score2').text('Score Player 2: ' + $game.playerTwoScore)
     $game.playerTurn--
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn ).css('color', '#96CA2D')
-    $game.time = 10
+    $game.time = 30
     $('#begin_winner').css('color', 'white')
-
+    //round 5
+    $('#input_field').css('display', 'unset')
+    $('#input_button').css('display', 'block')
+    $('#input_question').css('display', 'block')
     $questionGenerator();
     $TimePlay()
   } else if($game.round >= 2 && $game.winsPlayerOne === 2 || $game.winsPlayerTwo === 2 ) {
@@ -281,13 +336,17 @@ $ ( () => {
     $('#gameDiv_ties').text('Ties: ' + $game.ties)
     $game.round = 0
     $('#gameDiv_round').text('Round: ' + $game.round)
-    $game.time = 10
+    $game.time = 30
     $('#begin_winner').css('color', 'white')
     $game.playerTurn++
     $('#gameDiv_player').text('Player\'s turn: ' + $game.playerTurn)
     $game.round++
     $('#gameDiv_round').text('Round: ' + $game.round)
     $('#input_field').val('')
+    //round 6
+    $('#input_field').css('display', 'unset')
+    $('#input_button').css('display', 'block')
+    $('#input_question').css('display', 'block')
     $questionGenerator();
     $TimePlay()
 
