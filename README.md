@@ -1,30 +1,30 @@
 **MindSolve is a two-player game that challenges each player's mental math abilities. Each player has 30 seconds to solve as many math equations as they can varying from addition, subtraction, multipication, and division. Questions are uniquely generated using a random combination of numbers and operators.**
 ==========================================================================
-####MVP req
--Timer to end player's turn after 30 seconds
--Multiple rounds -make game object that holds p1 score, p2 score, round, depending on selection scores remain and round increase or refresh scores and round
--Logic to compare scores and determine winner
--Wide variety of questions all randomly generated
--Accurately display score
--Dom manipulation through jQuery
-  -Begin button
-  -Display randomly sorted question on the dom
-  -input field and submit answer
-  -event listeners,
-  -text to screen
-  -html elements create
--Hosted on github pages with readme.md
+##MVP req
+- Timer to end player's turn after 30 seconds
+- Multiple rounds -make game object that holds p1 score, p2 score, round, depending on selection scores remain and round increase or refresh    scores and round
+- Logic to compare scores and determine winner
+- Wide variety of questions all randomly generated
+- Accurately display score
+- Dom manipulation through jQuery
+  - Begin button
+  - Display randomly sorted question on the dom
+  - input field and submit answer
+  - event listeners,
+  - text to screen
+  - html elements create
+- Hosted on github pages with readme.md
 
-####Stretch goals
--Add bonus time for certain questions
--select level difficulty
--Have extra dom manipulation
--display players name
--smooth user experience
--reset
+##Stretch goals
+- Add bonus time for certain questions
+- select level difficulty
+- Have extra dom manipulation
+- display players name
+- smooth user experience
+- reset
 
 
-####Workflow
+#Workflow
 
 ####Data structures
 **Array to hold operators which will be selected at random to divide each side of the equation.**
@@ -33,7 +33,7 @@
     -var $operators =
 
 
-####Method of selection
+##Method of selection
 
 Select question at random with sort array
   const randomGen = () => {
@@ -51,9 +51,9 @@ Select question at random with sort array
 
     }
 
-####Display selection on the dom
+##Display selection on the dom
 
-//rewrite prompts with input values
+rewrite prompts with input values
 const myArray_2 = () => {
   let question = prompt($holder[0])
   let question_1 = parseInt(question)
@@ -73,9 +73,9 @@ console.log('you did it')
   ####Game objects
   There should be a object called game. This will contain all the player's scores and in addition all the round information. This object will be crucial for making correct if statements.
   //properties
-    -p1 score
-    -p2 score
-    -p1 wins
-    -p2 wins
-    -round
-    -method to check if winner
+    - p1 score
+    - p2 score
+    - p1 wins
+    - p2 wins
+    - round
+    - method to check if winner
