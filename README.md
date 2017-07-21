@@ -27,6 +27,8 @@
 
 # Workflow
 
+![Alt text](/images/20170719_083458.jpg "Optional Title")
+
 [Contribution guidelines for this project](images/20170719_083458.jpg)
 
 
