@@ -27,9 +27,11 @@
 
 # Workflow
 
-![Alt text](/images/20170719_083458.jpg "Optional Title")
+![Image 1](/images/20170719_083458.jpg)
 
-[Contribution guidelines for this project](images/20170719_083458.jpg)
+![Image 2](/images/20170719_083519.jpg)
+
+
 
 
 ## Data structures
