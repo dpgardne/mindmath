@@ -1,6 +1,6 @@
 
-**MindSolve is a two-player game that challenges each player's mental math abilities. Each player has 30 seconds to solve as many math equations as they can varying from addition, subtraction, multipication, and division. Questions are uniquely generated using a random combination of numbers and operators.**
-==========================================================================
+MindSolve is a two-player game that challenges each player's mental math abilities. Each player has 30 seconds to solve as many math equations as they can varying from addition, subtraction, multipication, and division. Questions are uniquely generated using a random combination of numbers and operators.
+
 ## MVP req
 - Timer to end player's turn after 30 seconds
 - Multiple rounds -make game object that holds p1 score, p2 score, round, depending on selection scores remain and round increase or refresh    scores and round
