@@ -37,6 +37,8 @@
 ## Method of selection
 
 **Select question at random with a function that randomly generates the left side of the equation, the operator, and the right side of the equation.**
+
+
   const randomGen = () => {
     var show = $hold[Math.floor(Math.random() * $hold.length)];
       console.log(show)
