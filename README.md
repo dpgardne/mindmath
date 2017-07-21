@@ -27,6 +27,7 @@
 
 # Workflow
 
+[Contribution guidelines for this project](images/20170719_083458.jpg)
 
 
 ## Data structures
