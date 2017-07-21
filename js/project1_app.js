@@ -276,6 +276,7 @@ $ ( () => {
     $TimePlay()
   } else if ($game.playerTurn === 2 && $game.round === 1) {
     $game.round++
+    $('#input_field').val('')
     $('#gameDiv_round').text('Round: ' + $game.round)
     $game.playerOneScore = 0
     $('#gameDiv_score1').text('Score Player 1: ' + $game.playerOneScore)
