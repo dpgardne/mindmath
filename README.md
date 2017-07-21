@@ -1,3 +1,4 @@
+
 **MindSolve is a two-player game that challenges each player's mental math abilities. Each player has 30 seconds to solve as many math equations as they can varying from addition, subtraction, multipication, and division. Questions are uniquely generated using a random combination of numbers and operators.**
 ==========================================================================
 ## MVP req
@@ -26,16 +27,16 @@
 
 # Workflow
 
+
+
 ## Data structures
-**Array to hold operators which will be selected at random to divide each side of the equation.**
+**Array to hold operators which will be selected at random to divide, multiply, add, or subtract each side of the equation.**
     **The left side and the right side of the equation will be completed with Math.random. Only the operators will be held in an array**
-    -Ex:
-    -var $operators =
 
 
 ## Method of selection
 
-Select question at random with sort array
+**Select question at random with a function that randomly generates the left side of the equation, the operator, and the right side of the equation.**
   const randomGen = () => {
     var show = $hold[Math.floor(Math.random() * $hold.length)];
       console.log(show)
@@ -53,26 +54,17 @@ Select question at random with sort array
 
 ## Display selection on the dom
 
-rewrite prompts with input values
-const myArray_2 = () => {
-  let question = prompt($holder[0])
-  let question_1 = parseInt(question)
-    if(question_1 === parseInt($holder[0])) {
-      console.log('success')
-    } else{
-
-console.log('you did it')
-    }
-}
+The randomly generated question should be displayed on the DOM.
 
 
 ## Let user enter input
   - Allow the user to enter their answer to each question in an input field.
   - If value of input = the parseInt of the question then player's score increases appropriately
 
-  ## Game objects
-  There should be a object called game. This will contain all the player's scores and in addition all the round information. This object will be crucial for making correct if statements.
-  ## properties of game object
+  - Game objects
+  **There should be a object called game. This will contain all the player's scores and in addition all the round information. This object will be crucial for making correct if statements.**
+
+  ## Properties of game object
     - p1 score
     - p2 score
     - p1 wins
